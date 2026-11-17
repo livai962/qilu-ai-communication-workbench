@@ -13,10 +13,29 @@ from pathlib import Path
 # ---------- 路径常量 ----------
 ROOT_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT_DIR / "data"
-SESSION_DIR = DATA_DIR / "sessions"
 DOCS_DIR = ROOT_DIR / "docs"
 
-SESSION_DIR.mkdir(parents=True, exist_ok=True)
+
+def _resolve_session_dir() -> Path:
+    """选择可写的会话目录。
+
+    优先仓库内 ``data/sessions``；在只读文件系统的云托管环境下回退到
+    ``/tmp`` 下的临时目录，避免启动期 ``mkdir`` / 写文件直接崩溃。
+    """
+    candidates = [DATA_DIR / "sessions", Path("/tmp") / "qilu_sessions"]
+    for directory in candidates:
+        try:
+            directory.mkdir(parents=True, exist_ok=True)
+            probe = directory / ".write_probe"
+            probe.write_text("ok", encoding="utf-8")
+            probe.unlink()
+            return directory
+        except OSError:
+            continue
+    return candidates[-1]
+
+
+SESSION_DIR = _resolve_session_dir()
 
 # ---------- 应用元信息 ----------
 APP_NAME = "齐鲁智传 · 山东本土文化 AI 传播智能工作台"
