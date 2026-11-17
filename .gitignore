@@ -1,0 +1,21 @@
+# 密钥与环境变量（严禁提交真实 Key）
+.env
+.env.local
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# 运行期会话数据（演示用历史记录，不纳入仓库；目录由程序自动创建）
+data/sessions/*.json
+
+# 系统与编辑器
+.DS_Store
+.idea/
+.vscode/
+*.log

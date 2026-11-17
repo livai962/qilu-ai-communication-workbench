@@ -1,0 +1,11 @@
+# 齐鲁智传 · 山东本土文化 AI 传播智能工作台 —— 运行依赖
+# 本地离线兜底引擎无需任何外部大模型服务即可完整跑通；
+# 配置 LLM_API_KEY 后可切换为在线大模型生成引擎。
+
+streamlit==1.67.0
+numpy==2.2.6
+pandas==2.2.3
+pyarrow==26.0.1
+python-docx==1.2.0
+diff-match-patch==20241021
+requests==2.34.2
