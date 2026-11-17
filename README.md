@@ -1,5 +1,7 @@
 # 齐鲁智传 · 山东本土文化 AI 传播智能工作台
 
+[![Deploy to Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/deploy?repository=https://github.com/livai962/qilu-ai-communication-workbench&branch=main&mainModule=app.py)
+
 > 2026 山东省首届大学生 AI 大模型创新传播大赛 · 赛道三（AI 传播工具创新赛道）参赛作品
 >
 > 文件命名规范：`赛道三-<学校名称>-<团队名称>-齐鲁智传·山东本土文化AI传播智能工作台`
